@@ -1,0 +1,21 @@
+=============== Mar 27, 2018 (+07) ===============
+17:01:51.825285 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:01:51.826408 db@open opening
+17:01:51.826968 version@stat F·[] S·0B[] Sc·[]
+17:01:51.827329 db@janitor F·2 G·0
+17:01:51.827365 db@open done T·842.309µs
+=============== Mar 27, 2018 (+07) ===============
+17:04:59.522070 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:04:59.522357 version@stat F·[] S·0B[] Sc·[]
+17:04:59.522400 db@open opening
+17:04:59.522493 journal@recovery F·1
+17:04:59.522640 journal@recovery recovering @1
+17:04:59.523162 memdb@flush created L0@2 N·1 S·186B "+\x8e\xc3..%V\xef,v1":"+\x8e\xc3..%V\xef,v1"
+17:04:59.523479 version@stat F·[1] S·186B[186B] Sc·[0.25]
+17:04:59.524664 db@janitor F·3 G·0
+17:04:59.524710 db@open done T·2.276557ms
+17:13:15.519776 memdb@flush N·5253 S·3MiB
+17:13:15.627128 memdb@flush created L0@6 N·5253 S·2MiB "\x00\x02H..\xee^\xb6,v3404":"\xff\xfd\a..\x9b\x13\xb1,v2597"
+17:13:15.627198 version@stat F·[2] S·2MiB[2MiB] Sc·[0.50]
+17:13:15.627504 memdb@flush committed F·1 T·107.629486ms
+17:13:15.629019 journal@remove removed @3

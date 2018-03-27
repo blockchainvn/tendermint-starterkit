@@ -1,0 +1,15 @@
+=============== Mar 27, 2018 (+07) ===============
+17:02:00.158601 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:02:00.159608 db@open opening
+17:02:00.159985 version@stat F·[] S·0B[] Sc·[]
+17:02:00.160295 db@janitor F·2 G·0
+17:02:00.160336 db@open done T·694.988µs
+=============== Mar 27, 2018 (+07) ===============
+17:05:08.337394 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:05:08.337714 version@stat F·[] S·0B[] Sc·[]
+17:05:08.337747 db@open opening
+17:05:08.337861 journal@recovery F·1
+17:05:08.338024 journal@recovery recovering @1
+17:05:08.339126 version@stat F·[] S·0B[] Sc·[]
+17:05:08.341417 db@janitor F·2 G·0
+17:05:08.341465 db@open done T·3.694442ms
