@@ -136,10 +136,10 @@ abci-cli dummy --addr="tcp://127.0.0.1:16658"
 abci-cli dummy --addr="tcp://127.0.0.1:26658"
 abci-cli dummy --addr="tcp://127.0.0.1:36658"
 abci-cli dummy --addr="tcp://127.0.0.1:46658"
-tendermint node --home ./node1 --proxy_app=tcp://127.0.0.1:16658 --p2p.seeds 127.0.0.1:16656,127.0.0.1:26656,127.0.0.1:36656,127.0.0.1:46656
-tendermint node --home ./node2 --proxy_app=tcp://127.0.0.1:26658 --p2p.seeds 127.0.0.1:16656,127.0.0.1:26656,127.0.0.1:36656,127.0.0.1:46656
-tendermint node --home ./node3 --proxy_app=tcp://127.0.0.1:36658 --p2p.seeds 127.0.0.1:16656,127.0.0.1:26656,127.0.0.1:36656,127.0.0.1:46656
-tendermint node --home ./node4 --proxy_app=tcp://127.0.0.1:46658 --p2p.seeds 127.0.0.1:16656,127.0.0.1:26656,127.0.0.1:36656,127.0.0.1:46656
+tendermint node --home ./node1 --proxy_app=tcp://127.0.0.1:16658 --p2p.seeds 127.0.0.1:16656,127.0.0.1:26656,127.0.0.1:36656,127.0.0.1:46656 --consensus.create_empty_blocks=false
+tendermint node --home ./node2 --proxy_app=tcp://127.0.0.1:26658 --p2p.seeds 127.0.0.1:16656,127.0.0.1:26656,127.0.0.1:36656,127.0.0.1:46656 --consensus.create_empty_blocks=false
+tendermint node --home ./node3 --proxy_app=tcp://127.0.0.1:36658 --p2p.seeds 127.0.0.1:16656,127.0.0.1:26656,127.0.0.1:36656,127.0.0.1:46656 --consensus.create_empty_blocks=false
+tendermint node --home ./node4 --proxy_app=tcp://127.0.0.1:46658 --p2p.seeds 127.0.0.1:16656,127.0.0.1:26656,127.0.0.1:36656,127.0.0.1:46656 --consensus.create_empty_blocks=false
 ```
 
 Note that after the third node is started, blocks will start to stream in because >2/3 of validators (defined in the `genesis.json`) have come online. Seeds can also be specified in the `config.toml`. See [this PR](https://github.com/tendermint/tendermint/pull/792) for more information about configuration options.
