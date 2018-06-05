@@ -1,86 +1,16 @@
 # Tendermint
 
-## Overview
-
-This is a quick start guide. If you have a vague idea about how Tendermint works
-and want to get started right away, continue. Otherwise, [review the documentation](http://tendermint.readthedocs.io/en/master/)
-
-## Install
-
-### Quick Install
-
-On a fresh Ubuntu 16.04 machine can be done with [this script](https://git.io/vh40C), like so:
-
-```
-curl -L https://git.io/vh40C | bash
-source ~/.profile
-```
-
-WARNING: do not run the above on your local machine.
-
-The script is also used to facilitate cluster deployment below.
-
-### Manual Install
-
-Requires:
-
-*   `go` minimum version 1.9
-*   `$GOPATH` environment variable must be set
-*   `$GOPATH/bin` must be on your `$PATH` (see https://github.com/tendermint/tendermint/wiki/Setting-GOPATH)
-
-To install Tendermint, run:
-
-```
-go get github.com/tendermint/tendermint
-cd $GOPATH/src/github.com/tendermint/tendermint
-make get_tools && make get_vendor_deps
-make install
-```
-
-Note that `go get` may return an error but it can be ignored.
-
-Confirm installation:
-
-```
-$ tendermint version
-0.15.0-381fe19
-```
-
 ## Initialization
 
 Running:
 
 ```
-tendermint init
+yarn start
+# show list
+docker-compose ps
 ```
 
-will create the required files for a single, local node.
-
-These files are found in `$HOME/.tendermint`:
-
-```
-$ ls $HOME/.tendermint
-
-config.toml  data  genesis.json  priv_validator.json
-```
-
-For a single, local node, no further configuration is required.
-Configuring a cluster is covered further below.
-
-## Local Node
-
-Start tendermint with a simple in-process application:
-
-```
-tendermint node --proxy_app=dummy
-```
-
-and blocks will start to stream in:
-
-```
-I[01-06|01:45:15.592] Executed block                               module=state height=1 validTxs=0 invalidTxs=0
-I[01-06|01:45:15.624] Committed state                              module=state height=1 txs=0 appHash=
-```
+![list](list.png)
 
 Check the status with:
 
@@ -132,14 +62,18 @@ This will install `go` and other dependencies, get the Tendermint source code, t
 Next, `cd` into `docs/examples`. Each command below should be run from each node, in sequence:
 
 ```
-abci-cli dummy --addr="tcp://127.0.0.1:16658"
-abci-cli dummy --addr="tcp://127.0.0.1:26658"
-abci-cli dummy --addr="tcp://127.0.0.1:36658"
-abci-cli dummy --addr="tcp://127.0.0.1:46658"
-tendermint node --home ./node1 --proxy_app=tcp://127.0.0.1:16658 --p2p.seeds 127.0.0.1:16656,127.0.0.1:26656,127.0.0.1:36656,127.0.0.1:46656 --consensus.create_empty_blocks=false
-tendermint node --home ./node2 --proxy_app=tcp://127.0.0.1:26658 --p2p.seeds 127.0.0.1:16656,127.0.0.1:26656,127.0.0.1:36656,127.0.0.1:46656 --consensus.create_empty_blocks=false
-tendermint node --home ./node3 --proxy_app=tcp://127.0.0.1:36658 --p2p.seeds 127.0.0.1:16656,127.0.0.1:26656,127.0.0.1:36656,127.0.0.1:46656 --consensus.create_empty_blocks=false
-tendermint node --home ./node4 --proxy_app=tcp://127.0.0.1:46658 --p2p.seeds 127.0.0.1:16656,127.0.0.1:26656,127.0.0.1:36656,127.0.0.1:46656 --consensus.create_empty_blocks=false
+abci-cli dummy --addr="tcp://IP1:46658"
+abci-cli dummy --addr="tcp://IP2:46658"
+abci-cli dummy --addr="tcp://IP3:46658"
+abci-cli dummy --addr="tcp://IP4:46658"
+
+tendermint node --home ./node1 --proxy_app=tcp://IP1:46658 --p2p.seeds IP2:46656,IP3:46656,IP4:46656 --consensus.create_empty_blocks=false
+
+tendermint node --home ./node2 --proxy_app=tcp://IP2:46658 --p2p.seeds IP1:46656,IP3:46656,IP4:46656 --consensus.create_empty_blocks=false
+
+tendermint node --home ./node3 --proxy_app=tcp://IP3:46658 --p2p.seeds IP1:46656,IP2:46656,IP4:46656 --consensus.create_empty_blocks=false
+
+tendermint node --home ./node4 --proxy_app=tcp://IP4:46658 --p2p.seeds IP1:46656,IP2:46656,IP3:46656 --consensus.create_empty_blocks=false
 ```
 
 Note that after the third node is started, blocks will start to stream in because >2/3 of validators (defined in the `genesis.json`) have come online. Seeds can also be specified in the `config.toml`. See [this PR](https://github.com/tendermint/tendermint/pull/792) for more information about configuration options.

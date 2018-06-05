@@ -1,0 +1,21 @@
+{
+  "name": "tendermint",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agiletechvn/tendermint-starterkit.git"
+  },
+  "scripts": {
+    "start": "docker-compose up -d",
+    "stop": "docker-compose down",
+    "reset": "./reset.sh",
+    "build-tendermint":
+      "cd docker && docker build -f tendermint -t thanhtu/tendermint .",
+    "build-abci": "cd docker && docker build -f abci -t thanhtu/abci ."
+  },
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=2.15.9"
+  },
+  "license": "Apache-2.0"
+}

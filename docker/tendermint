@@ -1,0 +1,14 @@
+FROM golang:alpine
+
+RUN apk add --update make
+
+## get the code and move into it
+RUN apk add --no-cache git && \
+    mkdir -p $GOPATH/src/github.com/tendermint && \
+    cd $GOPATH/src/github.com/tendermint && \
+    git clone https://github.com/tendermint/tendermint.git && \
+    cd tendermint && \
+    make get_tools && \
+    make get_vendor_deps && \
+    make install && \
+    apk del git && exit 0
