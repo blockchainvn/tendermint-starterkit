@@ -5,6 +5,9 @@
 Running:
 
 ```
+# if this is the second time
+yarn reset
+# then start the network
 yarn start
 # show list
 docker-compose ps
@@ -42,9 +45,14 @@ and query the key:
 
 ```
 curl -s 'localhost:46657/abci_query?data="name"'
+# query the key at other node
+curl -s 'localhost:36657/abci_query?data="name"'
 ```
 
 where the value is returned in hex.
+
+Note that using p2p.persistent_peers, each node will try to dial peers until they are online. So at the beginning you may be warned that the seed nodes are offline.
+![nodes](nodes.png)
 
 ## Cluster of Nodes
 
