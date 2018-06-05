@@ -9,10 +9,10 @@ and want to get started right away, continue. Otherwise, [review the documentati
 
 ### Quick Install
 
-On a fresh Ubuntu 16.04 machine can be done with [this script](https://git.io/vNLfY), like so:
+On a fresh Ubuntu 16.04 machine can be done with [this script](https://git.io/vh40C), like so:
 
 ```
-curl -L https://git.io/vNLfY | bash
+curl -L https://git.io/vh40C | bash
 source ~/.profile
 ```
 
@@ -120,10 +120,10 @@ where the value is returned in hex.
 
 First create four Ubuntu cloud machines. The following was tested on Digital Ocean Ubuntu 16.04 x64 (3GB/1CPU, 20GB SSD). We'll refer to their respective IP addresses below as IP1, IP2, IP3, IP4.
 
-Then, `ssh` into each machine, and execute [this script](https://git.io/vNLfY):
+Then, `ssh` into each machine, and execute [this script](https://git.io/vh40C):
 
 ```
-curl -L https://git.io/vNLfY | bash
+curl -L https://git.io/vh40C | bash
 source ~/.profile
 ```
 
