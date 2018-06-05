@@ -47,6 +47,18 @@ and query the key:
 curl -s 'localhost:46657/abci_query?data="name"'
 # query the key at other node
 curl -s 'localhost:36657/abci_query?data="name"'
+{
+  "jsonrpc": "2.0",
+  "id": "",
+  "result": {
+    "response": {
+      "log": "exists",
+      "index": "-1",
+      "key": "bmFtZQ==",
+      "value": "c2F0b3NoaQ=="
+    }
+  }
+}
 ```
 
 where the value is returned in hex.
