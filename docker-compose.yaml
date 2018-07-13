@@ -27,11 +27,11 @@ services:
     ports:
       - 16657:46657    
     # command: /bin/sh
-    command: |
-      sh -c "
-        tendermint node \
-          --home ./ \          
-        "
+    command: 
+            |
+            sh -c "
+              tendermint node \
+                --home ./ "
     
   node2:
     image: thanhtu/tendermint:$VERSION    
@@ -43,11 +43,11 @@ services:
     ports:
       - 26657:46657
     # command: /bin/sh
-    command: |
-      sh -c "
-        tendermint node \
-          --home ./ \
-        "
+    command: 
+            |
+            sh -c "
+              tendermint node \
+                --home ./ "
 
   node3:
     image: thanhtu/tendermint:$VERSION    
@@ -60,11 +60,11 @@ services:
     ports:
       - 36657:46657
     # command: /bin/sh
-    command: |
-      sh -c "
-        tendermint node \
-          --home ./ \          
-        "
+    command: 
+            |
+            sh -c "
+              tendermint node \
+                --home ./ "
 
   node4:
     image: thanhtu/tendermint:$VERSION    
@@ -77,51 +77,51 @@ services:
     ports:
       - 46657:46657
     # command: /bin/sh
-    command: |
-      sh -c "
-        tendermint node \
-          --home ./ \          
-        "
+    command: 
+            |
+            sh -c "
+              tendermint node \
+                --home ./ "
 
   
   abci1:
     image: thanhtu/abci:$VERSION    
     container_name: abci1        
     tty: true        
-    command: |
-      sh -c "
-        abci-cli dummy \
-          --addr=tcp://0.0.0.0:46658 \
-        "
+    command: 
+            |
+            sh -c "
+              abci-cli dummy \
+                --addr=tcp://0.0.0.0:46658 "
 
   abci2:
     image: thanhtu/abci:$VERSION    
     container_name: abci2     
     tty: true        
-    command: |
-      sh -c "
-        abci-cli dummy \
-          --addr=tcp://0.0.0.0:46658 \
-        "
+    command: 
+            |
+            sh -c "
+              abci-cli dummy \
+                --addr=tcp://0.0.0.0:46658 "
 
   abci3:
     image: thanhtu/abci:$VERSION    
     container_name: abci3      
     tty: true        
-    command: |
-      sh -c "
-        abci-cli dummy \
-          --addr=tcp://0.0.0.0:46658 \
-        "
+    command: 
+            |
+            sh -c "
+              abci-cli dummy \
+                --addr=tcp://0.0.0.0:46658 "
 
   abci4:
     image: thanhtu/abci:$VERSION    
     container_name: abci4        
     tty: true        
-    command: |
-      sh -c "
-        abci-cli dummy \
-          --addr=tcp://0.0.0.0:46658 \
-        "
+    command: 
+            |
+            sh -c "
+              abci-cli dummy \
+                --addr=tcp://0.0.0.0:46658 "
   
 

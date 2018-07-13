@@ -9,6 +9,7 @@
     "start": "docker-compose up -d",
     "stop": "docker-compose down",
     "reset": "./reset.sh",
+    "resetKuber": "./reset-kubernetes.sh",
     "build-tendermint":
       "cd docker && docker build -f tendermint -t thanhtu/tendermint .",
     "build-abci": "cd docker && docker build -f abci -t thanhtu/abci ."

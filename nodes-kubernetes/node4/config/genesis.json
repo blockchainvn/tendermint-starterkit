@@ -1,0 +1,39 @@
+{
+	"genesis_time": "0001-01-01T00:00:00Z",
+	"chain_id": "test-chain-wt7apy",
+	"validators": [
+		{
+			"pub_key": {
+				"type": "AC26791624DE60",
+				"value": "Lkxtl4A0XgFBQ9UmRahZmdNtwvWMOOTmDBVv6pYpZTE="
+			},
+			"power": 10,
+			"name": "node1"
+		},
+		{
+			"pub_key": {
+				"type": "AC26791624DE60",
+				"value": "vLlA2dbxxvwGaDsifQa2svA54eWIC0SJDzQMeA4AEFs="
+			},
+			"power": 10,
+			"name": "node2"
+		},
+		{
+			"pub_key": {
+				"type": "AC26791624DE60",
+				"value": "eTcTNAJ73Cgni5AdIFyeSXI1a8DMx2mi+XOuuSgNI70="
+			},
+			"power": 10,
+			"name": "node3"
+		},
+		{
+			"pub_key": {
+				"type": "AC26791624DE60",
+				"value": "WTlerrS/RfpPjoQhV2rPfQrpA5yT+iI31qeLmypWisM="
+			},
+			"power": 10,
+			"name": "node4"
+		}
+	],
+	"app_hash": ""
+}

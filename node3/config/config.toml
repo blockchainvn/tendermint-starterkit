@@ -25,3 +25,13 @@ persistent_peers = "e22d32468d18766d14d43eb4bf65f97930637827@node1:46656,b52acf6
 [consensus]
 # EmptyBlocks mode and possible interval between empty blocks in seconds
 create_empty_blocks = false
+
+[instrumentation]
+
+# When true, Prometheus metrics are served under /metrics on
+# PrometheusListenAddr.
+# Check out the documentation for the list of available metrics.
+prometheus = true
+
+# Address to listen for Prometheus collector(s) connections
+prometheus_listen_addr = ":26660"

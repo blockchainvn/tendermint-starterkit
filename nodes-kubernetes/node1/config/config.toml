@@ -3,7 +3,7 @@
 
 # addr_book_strict = true
 
-proxy_app = "tcp://abci1:46658"
+proxy_app = "tcp://localhost:46658"
 
 moniker = "node1"
 fast_sync = true
