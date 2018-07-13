@@ -19,7 +19,7 @@ laddr = "tcp://0.0.0.0:46656"
 # Comma separated list of nodes to keep persistent connections to
 # Do not add private peers to this list if you don't want them advertised
 # Get ID by using command: tendermint --home ./ show_node_id
-persistent_peers = "e22d32468d18766d14d43eb4bf65f97930637827@node1:46656,b52acf6505eecab38b9cb637258355f3bfe09298@node2:46656,596da16099a528e93871f6ed245825f0fa2d16d4@node3:46656,946676ec3a94ba80268b5256a3b9270f5258390c@node4:46656"
+persistent_peers = "e22d32468d18766d14d43eb4bf65f97930637827@tendermint-1.tendermint-test:46656,b52acf6505eecab38b9cb637258355f3bfe09298@tendermint-2.tendermint-test:46656,596da16099a528e93871f6ed245825f0fa2d16d4@tendermint-3.tendermint-test:46656,946676ec3a94ba80268b5256a3b9270f5258390c@tendermint-4.tendermint-test:46656"
 
 ##### consensus configuration options #####
 [consensus]

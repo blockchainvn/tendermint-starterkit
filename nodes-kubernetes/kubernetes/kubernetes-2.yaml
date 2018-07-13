@@ -54,7 +54,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: tendermint
+  name: tendermint-2
   namespace: tendermint-test
 spec:
  selector:

@@ -35,6 +35,7 @@ spec:
         workingDir: /tendermint
         ports:
           - containerPort: 46657
+          - containerPort: 26660
         command: 
         - sh
         - "-c"
@@ -54,7 +55,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: tendermint
+  name: tendermint-1
   namespace: tendermint-test
 spec:
  selector:
@@ -66,3 +67,8 @@ spec:
     port: 46657
     targetPort: 46657
     nodePort: 30657
+  - name: metricendpoint
+    protocol: TCP
+    port: 26660
+    targetPort: 26660
+    nodePort: 30660

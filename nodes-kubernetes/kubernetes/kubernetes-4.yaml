@@ -54,7 +54,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: tendermint
+  name: tendermint-4
   namespace: tendermint-test
 spec:
  selector:
@@ -65,4 +65,4 @@ spec:
     protocol: TCP
     port: 46657
     targetPort: 46657
-    nodePort: 31567
+    nodePort: 31000
