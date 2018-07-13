@@ -35,6 +35,7 @@ spec:
         workingDir: /tendermint
         ports:
           - containerPort: 46657
+          - containerPort: 46656
           - containerPort: 26660
         command: 
         - sh
@@ -60,6 +61,26 @@ metadata:
 spec:
  selector:
    app: validator-1
+ type: ClusterIP
+ ports:
+  - name: component
+    protocol: TCP
+    port: 46656
+    targetPort: 46656     
+  - name: metricendpoint
+    protocol: TCP
+    port: 26660
+    targetPort: 26660
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tendermint-api
+  namespace: tendermint-test
+spec:
+ selector:
+   app: validator-1
  type: NodePort
  ports:
   - name: endpoint
@@ -67,8 +88,3 @@ spec:
     port: 46657
     targetPort: 46657
     nodePort: 30657
-  - name: metricendpoint
-    protocol: TCP
-    port: 26660
-    targetPort: 26660
-    nodePort: 30660

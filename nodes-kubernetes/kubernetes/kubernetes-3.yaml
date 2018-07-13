@@ -35,6 +35,8 @@ spec:
         workingDir: /tendermint
         ports:
           - containerPort: 46657
+          - containerPort: 46656
+          - containerPort: 26660
         command: 
         - sh
         - "-c"
@@ -59,10 +61,13 @@ metadata:
 spec:
  selector:
    app: validator-3
- type: NodePort
+ type: ClusterIP
  ports:
-  - name: endpoint
+  - name: component
     protocol: TCP
-    port: 46657
-    targetPort: 46657
-    nodePort: 32657
+    port: 46656
+    targetPort: 46656     
+  - name: metricendpoint
+    protocol: TCP
+    port: 26660
+    targetPort: 26660
