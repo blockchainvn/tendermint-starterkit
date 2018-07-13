@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: tendermint-test
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: tendermint-test
+  name: validator-2
+spec:
+  selector:
+    matchLabels:
+      app: validator-2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: validator-2
+    spec:
+      # nodeSelector:
+      #   node1: node1  
+      volumes:
+      - name: node-volume 
+        hostPath: 
+          path: /Users/vjtc0n/Desktop/2018/Hyperledger/tendermint-starterkit/nodes-kubernetes/node2  
+      containers:
+      - name: validator-2
+        image: thanhtu/tendermint:latest
+        volumeMounts:
+        - mountPath: /tendermint
+          name: node-volume
+        workingDir: /tendermint
+        ports:
+          - containerPort: 46657
+        command: 
+        - sh
+        - "-c"
+        - |
+          tendermint node \
+              --home ./
+      - name: abci1
+        image: thanhtu/abci:latest
+        command:
+        - sh
+        - "-c"
+        - |
+          abci-cli dummy \
+              --addr=tcp://localhost:46658
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tendermint
+  namespace: tendermint-test
+spec:
+ selector:
+   app: validator-2
+ type: NodePort
+ ports:
+  - name: endpoint
+    protocol: TCP
+    port: 46657
+    targetPort: 46657
+    nodePort: 31657
