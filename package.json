@@ -8,7 +8,8 @@
   "scripts": {
     "start": "docker-compose up -d",
     "startKuber": "kubectl apply -f nodes-kubernetes/kubernetes/",
-    "stopKuber": "kubectl delete namespace tendermint-test",
+    "stopKuber":
+      "kubectl delete namespace tendermint-test && ./reset-kubernetes.sh",
     "checkKuber": "kubectl get pods --namespace=tendermint-test",
     "stop": "docker-compose down",
     "reset": "./reset.sh",

@@ -28,7 +28,7 @@ spec:
           path: /Users/vjtc0n/Desktop/2018/Hyperledger/tendermint-starterkit/nodes-kubernetes/node2  
       containers:
       - name: validator-2
-        image: thanhtu/tendermint:latest
+        image: vjtc0n/tendermint:latest
         volumeMounts:
         - mountPath: /tendermint
           name: node-volume
@@ -36,7 +36,6 @@ spec:
         ports:
           - containerPort: 46657
           - containerPort: 46656
-          - containerPort: 26660
         command: 
         - sh
         - "-c"
@@ -44,7 +43,7 @@ spec:
           tendermint node \
               --home ./
       - name: abci1
-        image: thanhtu/abci:latest
+        image: vjtc0n/abci:latest
         command:
         - sh
         - "-c"
@@ -66,8 +65,4 @@ spec:
   - name: component
     protocol: TCP
     port: 46656
-    targetPort: 46656     
-  - name: metricendpoint
-    protocol: TCP
-    port: 26660
-    targetPort: 26660
+    targetPort: 46656

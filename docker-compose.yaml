@@ -18,23 +18,24 @@ version: "3"
 services:
 
   node1:
-    image: thanhtu/tendermint:$VERSION    
+    image: vjtc0n/tendermint:$VERSION    
     container_name: node1    
     volumes:            
       - ./node1:/tendermint
     tty: true    
     working_dir: /tendermint  
     ports:
-      - 16657:46657    
+      - 16657:46657
+      - 30000:26660    
     # command: /bin/sh
     command: 
-            |
-            sh -c "
-              tendermint node \
-                --home ./ "
+      - sh
+      - "-c"
+      - |
+        tendermint node --home ./ 
     
   node2:
-    image: thanhtu/tendermint:$VERSION    
+    image: vjtc0n/tendermint:$VERSION    
     container_name: node2    
     volumes:            
       - ./node2:/tendermint
@@ -44,13 +45,13 @@ services:
       - 26657:46657
     # command: /bin/sh
     command: 
-            |
-            sh -c "
-              tendermint node \
-                --home ./ "
+      - sh
+      - "-c"
+      - |
+        tendermint node --home ./
 
   node3:
-    image: thanhtu/tendermint:$VERSION    
+    image: vjtc0n/tendermint:$VERSION    
     container_name: node3
     
     volumes:            
@@ -61,13 +62,13 @@ services:
       - 36657:46657
     # command: /bin/sh
     command: 
-            |
-            sh -c "
-              tendermint node \
-                --home ./ "
+      - sh
+      - "-c"
+      - |
+        tendermint node --home ./
 
   node4:
-    image: thanhtu/tendermint:$VERSION    
+    image: vjtc0n/tendermint:$VERSION    
     container_name: node4
     
     volumes:            
@@ -78,50 +79,50 @@ services:
       - 46657:46657
     # command: /bin/sh
     command: 
-            |
-            sh -c "
-              tendermint node \
-                --home ./ "
+      - sh
+      - "-c"
+      - |
+        tendermint node --home ./
 
   
   abci1:
-    image: thanhtu/abci:$VERSION    
+    image: vjtc0n/abci:$VERSION    
     container_name: abci1        
     tty: true        
     command: 
             |
             sh -c "
-              abci-cli dummy \
-                --addr=tcp://0.0.0.0:46658 "
+              abci-cli kvstore \
+                --address=tcp://0.0.0.0:46658 "
 
   abci2:
-    image: thanhtu/abci:$VERSION    
+    image: vjtc0n/abci:$VERSION    
     container_name: abci2     
     tty: true        
     command: 
             |
             sh -c "
-              abci-cli dummy \
-                --addr=tcp://0.0.0.0:46658 "
+              abci-cli kvstore \
+                --address=tcp://0.0.0.0:46658 "
 
   abci3:
-    image: thanhtu/abci:$VERSION    
+    image: vjtc0n/abci:$VERSION    
     container_name: abci3      
     tty: true        
     command: 
             |
             sh -c "
-              abci-cli dummy \
-                --addr=tcp://0.0.0.0:46658 "
+              abci-cli kvstore \
+                --address=tcp://0.0.0.0:46658 "
 
   abci4:
-    image: thanhtu/abci:$VERSION    
+    image: vjtc0n/abci:$VERSION    
     container_name: abci4        
     tty: true        
     command: 
             |
             sh -c "
-              abci-cli dummy \
-                --addr=tcp://0.0.0.0:46658 "
+              abci-cli kvstore \
+                --address=tcp://0.0.0.0:46658 "
   
 
