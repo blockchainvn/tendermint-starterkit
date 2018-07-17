@@ -1,6 +1,6 @@
 {
   "genesis_time": "2018-07-14T03:44:11.4883673Z",
-  "chain_id": "test-chain-p4atsy",
+  "chain_id": "test-chain-W5azIN",
   "consensus_params": {
     "block_size_params": {
       "max_bytes": "22020096",
@@ -22,10 +22,34 @@
     {
       "pub_key": {
         "type": "tendermint/PubKeyEd25519",
+        "value": "qq170veTHdh2wsv4cWbhnGBJIE2miyz7SbDtHbITnmk="
+      },
+      "power": "10",
+      "name": "node1"
+    },
+    {
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "/rKcRufTslS5At09pUTeMfivks8EKg5IXPJDCKfWfrU="
+      },
+      "power": "10",
+      "name": "node2"
+    },
+    {
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
         "value": "PVwck9Tg2sZ7zkyA+2ncGik5RcoBTZW6jYzKdW9GmEI="
       },
       "power": "10",
-      "name": ""
+      "name": "node3"
+    },
+    {
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "u9cphnpgfjpWDIWg2Umt42t0bSgZ2RYyCW0gQ/7+zTQ="
+      },
+      "power": "10",
+      "name": "node4"
     }
   ],
   "app_hash": ""
