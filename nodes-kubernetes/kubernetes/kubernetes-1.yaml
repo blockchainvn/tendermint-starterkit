@@ -33,6 +33,9 @@ spec:
         - mountPath: /tendermint
           name: node-volume
         workingDir: /tendermint
+        env:
+        - name: TMHOME
+          value: /tendermint
         ports:
           - containerPort: 46657
           - containerPort: 46656
@@ -41,16 +44,14 @@ spec:
         - sh
         - "-c"
         - |
-          tendermint node \
-              --home ./
+          tendermint node --home ./
       - name: abci1
         image: vjtc0n/abci:latest
         command:
         - sh
         - "-c"
         - |
-          abci-cli kvstore \
-              --address=tcp://localhost:46658
+          abci-cli kvstore --address=tcp://localhost:46658
 
 ---
 apiVersion: v1
