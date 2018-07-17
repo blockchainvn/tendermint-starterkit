@@ -50,7 +50,7 @@ spec:
         - "-c"
         - |
           abci-cli kvstore \
-              --addr=tcp://localhost:46658
+              --address=tcp://localhost:46658
 
 ---
 apiVersion: v1
