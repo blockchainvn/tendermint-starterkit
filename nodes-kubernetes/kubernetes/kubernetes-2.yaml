@@ -48,7 +48,7 @@ spec:
         - sh
         - "-c"
         - |
-          abci-cli dummy \
+          abci-cli kvstore \
               --addr=tcp://localhost:46658
 
 ---
